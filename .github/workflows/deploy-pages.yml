@@ -8,6 +8,7 @@ on:
     paths-ignore:
       - .angular
       - node_modules
+      - notes
       - .browserlistrc
       - .editorconfig
       - .gitignore
