@@ -1,11 +1,16 @@
 import { Route } from '@angular/router';
-import { HomeRoute } from './home';
+
+import {
+    LayoutComponents,
+    LayoutRoutes
+} from './layout';
 
 export const RouteComponents = [
-  HomeRoute
+  ...LayoutComponents
 ]
 
 export const Routes: Route[] = [
-  { path: '', component: HomeRoute },
-  { path: '**', redirectTo: '', pathMatch: 'full' }
+    ...LayoutRoutes,
+    { path: '', redirectTo: 'layouts', pathMatch: 'full' },
+    { path: '**', redirectTo: 'layouts', pathMatch: 'full' }
 ]

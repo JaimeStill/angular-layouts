@@ -1,0 +1,22 @@
+<div class="grid full-height">
+    <nav mat-tab-nav-bar>
+        <a mat-tab-link
+           routerLink="essentials"
+           routerLinkActive="active">
+            Essentials
+        </a>
+        <a mat-tab-link
+           routerLink="grid-layout"
+           routerLinkActive="active">
+            Grid Layout
+        </a>
+        <a mat-tab-link
+           routerLink="flex-directives"
+           routerLinkActive="active">
+            Flex Directives
+        </a>
+    </nav>
+    <div class="overflow">
+        <router-outlet></router-outlet>
+    </div>
+</div>

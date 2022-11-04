@@ -5,7 +5,8 @@
 
 @import './flex.scss';
 @import './layout.scss';
-@import './styles.scss';
+@import './color.scss';
+@import './material.scss';
 @import './utility.scss';
 
 $light-palette: palette.get-palette();

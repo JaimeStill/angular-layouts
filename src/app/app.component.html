@@ -1,7 +1,7 @@
-<section class="mat-typography mat-app-background app-frame"
-         [ngClass]="themer.isLight ? 'app-light' : 'app-dark'">
+<div class="mat-typography mat-app-background grid full-height"
+     [ngClass]="themer.isLight ? 'app-light' : 'app-dark'">
     <mat-toolbar color="primary"
-                 class="app-toolbar sticky-top rounded-bottom">
+                 class="app-toolbar rounded-bottom">
         <span class="cursor-pointer"
               routerLink="/">Angular Layouts</span>
         <span fxFlex></span>
@@ -12,7 +12,7 @@
             <mat-icon *ngIf="!(themer.isLight)">brightness_3</mat-icon>
         </button>
     </mat-toolbar>
-    <section class="app-container">
+    <div class="overflow">
         <router-outlet></router-outlet>
-    </section>
-</section>
+    </div>
+</div>

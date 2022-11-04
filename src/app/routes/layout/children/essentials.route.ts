@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
 
 @Component({
-    selector: 'home-route',
-    templateUrl: 'home.route.html',
-    styleUrls: ['home.route.scss']
+    selector: 'essentials-route',
+    templateUrl: 'essentials.route.html',
+    styleUrls: ['essentials.route.scss']
 })
-export class HomeRoute {
+export class EssentialsRoute {
     colors: Array<string> = [
         'red',
         'purple',
