@@ -8,4 +8,4 @@ https://jaimestill.github.io/angular-layouts/
 
 * [Flex Styles](./notes/flex-styles.md)
 * [Root Layout](./notes/root-layout.md)
-* [Theme Structure and Optimizations](./notes/theme.md)
+* [Theme Structure and Generated Style Optimization](./notes/theme.md)
