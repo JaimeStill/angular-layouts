@@ -1,12 +1,12 @@
 <div class="fx fx-column full-height">
-    <p class="p8 m0 mat-title">CSS Flexbox</p>
+    <p class="p8 m0 mat-title fx-as-center">CSS Flexbox</p>
     <div class="fx fx-flex fx-row fx-wrap fx-jc-space-between fx-ai-center background-card m4 p4 rounded card-outline-divider">
         <box *ngFor="let color of colors"
              [color]="color">
             <strong class="mat-subheading-2 m0">{{color | spacify}}</strong>
         </box>
     </div>
-    <p class="p8 m0 mat-title">CSS Grid</p>
+    <p class="p8 m0 mat-title fx-as-center">CSS Grid</p>
     <div class="grid fx-flex background-card m4 p4 rounded card-outline-divider">
         <box *ngFor="let color of colors" [color]="color">
             <strong class="mat-subheading-2 m0">{{color | spacify}}</strong>
