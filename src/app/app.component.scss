@@ -1,0 +1,8 @@
+div.grid {
+    display: grid;
+    grid-template-rows: minmax(56px, 64px) 1fr;
+}
+
+div.outlet {
+    overflow: auto;
+}
