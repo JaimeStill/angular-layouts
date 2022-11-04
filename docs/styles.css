@@ -1164,26 +1164,6 @@ button.mat-icon-button.small mat-icon.mat-icon {
   white-space: pre-wrap;
 }
 
-.sticky-top {
-  position: sticky;
-  top: 0;
-}
-
-.sticky-right {
-  position: sticky;
-  right: 0;
-}
-
-.sticky-bottom {
-  position: sticky;
-  bottom: 0;
-}
-
-.sticky-left {
-  position: sticky;
-  left: 0;
-}
-
 .overflow {
   overflow: auto;
 }
@@ -1220,12 +1200,6 @@ button.mat-icon-button.small mat-icon.mat-icon {
   cursor: default !important;
 }
 
-.backdropped {
-  transition: -webkit-backdrop-filter 100ms ease-in;
-  transition: backdrop-filter 100ms ease-in;
-  transition: backdrop-filter 100ms ease-in, -webkit-backdrop-filter 100ms ease-in;
-}
-
 .rounded {
   border-radius: 4px;
 }
@@ -1250,28 +1224,8 @@ button.mat-icon-button.small mat-icon.mat-icon {
   border-bottom-left-radius: 4px;
 }
 
-.clip-top {
-  clip-path: inset(0, -5px, -5px, -5px);
-}
-
-.clip-right {
-  clip-path: inset(-5px, 0, -5px, -5px);
-}
-
-.clip-bottom {
-  clip-path: inset(-5px, -5px, 0, -5px);
-}
-
-.clip-left {
-  clip-path: inset(-5px, -5px, -5px, 0);
-}
-
 .no-outline {
   outline: 0;
-}
-
-.text-align-center {
-  text-align: center;
 }
 
 .p0 {
