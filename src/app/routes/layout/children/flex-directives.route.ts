@@ -20,6 +20,7 @@ export class FlexDirectivesRoute {
 
     headerAlign: FxAlignSelf = 'center';
     flex: string = '0 1 auto';
+    canFlex: boolean = true;
     direction: FxDirection = 'row';
     wrap: FxWrap = 'nowrap';
     main: FxMain = 'flex-start';

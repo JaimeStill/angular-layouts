@@ -6,7 +6,7 @@
        [flexAlignSelf]="headerAlign">Flex Directives</p>
     <div class="control-grid background-card m4 p8 rounded card-outline-divider">
         <mat-form-field>
-            <mat-label>Header FlexAlignSelf</mat-label>
+            <mat-label>Child FlexAlignSelf</mat-label>
             <mat-select [(ngModel)]="headerAlign">
                 <mat-option *ngFor="let a of values.fxAlignSelf"
                             [value]="a">{{a}}</mat-option>
@@ -53,6 +53,13 @@
                    type="text"
                    [(ngModel)]="gap">
         </mat-form-field>
+        <mat-form-field>
+            <mat-label>Child Flex</mat-label>
+            <input matInput
+                   type="text"
+                   [(ngModel)]="flex">
+        </mat-form-field>
+        <mat-slide-toggle [(ngModel)]="canFlex">Child CanFlex</mat-slide-toggle>
     </div>
     <div class="background-card m4 p4 rounded card-outline-divider full-height overflow"
          flexContainer
@@ -65,6 +72,9 @@
         <div *ngFor="let color of colors"
              class="p8 rounded card-outline-divider"
              [ngClass]="getColor(color)"
+             flexChild
+             [flex]="flex"
+             [canFlex]="canFlex"
              flexContainer
              flexDirection="column"
              flexMain="center"

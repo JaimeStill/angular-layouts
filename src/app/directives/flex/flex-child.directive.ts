@@ -12,12 +12,21 @@ import { FxAlignSelf } from '../../types/flex';
     selector: '[flexChild]'
 })
 export class FlexChildDirective implements OnChanges {
+    private readonly FLEX_DEFAULT = '0 1 auto';
+
     // align-self
     @Input() flexAlignSelf: FxAlignSelf = 'inherit';
     // flex
-    @Input() flex: string = '0 1 auto';
+    @Input() flex: string = this.FLEX_DEFAULT;
+
+    @Input() canFlex: boolean = true;
 
     private style = () => this.el.nativeElement.style;
+
+    private setFlex = () => this.style().flex =
+        this.canFlex
+            ? this.flex
+            : this.FLEX_DEFAULT;
 
     constructor(private el: ElementRef) { }
 
@@ -26,6 +35,9 @@ export class FlexChildDirective implements OnChanges {
             this.style().alignSelf = this.flexAlignSelf;
 
         if (changes.flex)
-            this.style().flex = this.flex;
+            this.setFlex();
+
+        if (changes.canFlex)
+            this.setFlex();
     }
 }
