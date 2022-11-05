@@ -1377,7 +1377,7 @@ class EssentialsRoute {
     }
 }
 EssentialsRoute.ɵfac = function EssentialsRoute_Factory(t) { return new (t || EssentialsRoute)(); };
-EssentialsRoute.ɵcmp = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵdefineComponent"]({ type: EssentialsRoute, selectors: [["essentials-route"]], decls: 9, vars: 2, consts: [[1, "fx", "fx-column", "full-height"], [1, "p8", "m0", "mat-title"], [1, "fx", "fx-flex", "fx-row", "fx-wrap", "fx-jc-space-between", "fx-ai-center", "background-card", "m4", "p4", "rounded", "card-outline-divider"], [3, "color", 4, "ngFor", "ngForOf"], [1, "grid", "fx-flex", "background-card", "m4", "p4", "rounded", "card-outline-divider"], [3, "color"], [1, "mat-subheading-2", "m0"]], template: function EssentialsRoute_Template(rf, ctx) { if (rf & 1) {
+EssentialsRoute.ɵcmp = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵdefineComponent"]({ type: EssentialsRoute, selectors: [["essentials-route"]], decls: 9, vars: 2, consts: [[1, "fx", "fx-column", "full-height"], [1, "p8", "m0", "mat-title", "fx-as-center"], [1, "fx", "fx-flex", "fx-row", "fx-wrap", "fx-jc-space-between", "fx-ai-center", "background-card", "m4", "p4", "rounded", "card-outline-divider"], [3, "color", 4, "ngFor", "ngForOf"], [1, "grid", "fx-flex", "background-card", "m4", "p4", "rounded", "card-outline-divider"], [3, "color"], [1, "mat-subheading-2", "m0"]], template: function EssentialsRoute_Template(rf, ctx) { if (rf & 1) {
         _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](0, "div", 0)(1, "p", 1);
         _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](2, "CSS Flexbox");
         _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
