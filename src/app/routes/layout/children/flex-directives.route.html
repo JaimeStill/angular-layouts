@@ -1,0 +1,79 @@
+<div class="full-height"
+     flexContainer
+     flexDirection="column">
+    <p class="p8 m0 mat-title"
+       flexChild
+       [flexAlignSelf]="headerAlign">Flex Directives</p>
+    <div class="control-grid background-card m4 p8 rounded card-outline-divider">
+        <mat-form-field>
+            <mat-label>Header FlexAlignSelf</mat-label>
+            <mat-select [(ngModel)]="headerAlign">
+                <mat-option *ngFor="let a of values.fxAlignSelf"
+                            [value]="a">{{a}}</mat-option>
+            </mat-select>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Child Flex</mat-label>
+            <input matInput
+                   type="text"
+                   [(ngModel)]="flex">
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Container FlexDirection</mat-label>
+            <mat-select [(ngModel)]="direction">
+                <mat-option *ngFor="let d of values.fxDirection"
+                            [value]="d">{{d}}</mat-option>
+            </mat-select>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Container FlexWrap</mat-label>
+            <mat-select [(ngModel)]="wrap">
+                <mat-option *ngFor="let w of values.fxWrap"
+                            [value]="w">{{w}}</mat-option>
+            </mat-select>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Container FlexMain</mat-label>
+            <mat-select [(ngModel)]="main">
+                <mat-option *ngFor="let m of values.fxMain"
+                            [value]="m">{{m}}</mat-option>
+            </mat-select>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Container FlexCross</mat-label>
+            <mat-select [(ngModel)]="cross">
+                <mat-option *ngFor="let c of values.fxCross"
+                            [value]="c">{{c}}</mat-option>
+            </mat-select>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Container FlexAlign</mat-label>
+            <mat-select [(ngModel)]="align">
+                <mat-option *ngFor="let a of values.fxAlign"
+                            [value]="a">{{a}}</mat-option>
+            </mat-select>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Container FlexGap</mat-label>
+            <input matInput
+                   type="text"
+                   [(ngModel)]="gap">
+        </mat-form-field>
+    </div>
+    <div class="background-card m4 p4 rounded card-outline-divider full-height overflow"
+         flexContainer
+         [flexDirection]="direction"
+         [flexWrap]="wrap"
+         [flexMain]="main"
+         [flexCross]="cross"
+         [flexAlign]="align"
+         [flexGap]="gap">
+        <div *ngFor="let color of colors"
+             class="p8 rounded card-outline-divider"
+             [ngClass]="getColor(color)"
+             flexContainer
+             flexDirection="column"
+             flexMain="center"
+             flexCross="center">{{color | spacify}}</div>
+    </div>
+</div>

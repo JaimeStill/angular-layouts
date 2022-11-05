@@ -8,10 +8,10 @@ import { Component } from '@angular/core';
 export class EssentialsRoute {
     colors: Array<string> = [
         'red',
-        'purple',
-        'blue',
-        'green',
+        'orange',
         'yellow',
-        'orange'
+        'green',
+        'blue',
+        'purple'
     ];
 }

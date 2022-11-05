@@ -1,3 +1,8 @@
-<div class="box fx fx-jc-center fx-ai-center p8 m4 rounded card-outline-divider" [class]="setColor()">
+<div class="fx fx-jc-center fx-ai-center rounded card-outline-divider"
+     [class]="setColor()"
+     [style.width.rem]="size"
+     [style.height.rem]="size"
+     [style.padding.px]="padding"
+     [style.margin.px]="margin">
     <ng-content></ng-content>
 </div>
