@@ -13,12 +13,6 @@
             </mat-select>
         </mat-form-field>
         <mat-form-field>
-            <mat-label>Child Flex</mat-label>
-            <input matInput
-                   type="text"
-                   [(ngModel)]="flex">
-        </mat-form-field>
-        <mat-form-field>
             <mat-label>Container FlexDirection</mat-label>
             <mat-select [(ngModel)]="direction">
                 <mat-option *ngFor="let d of values.fxDirection"
