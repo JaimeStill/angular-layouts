@@ -19,8 +19,8 @@ export class FlexDirectivesRoute {
     values = FlexTypeValues;
 
     headerAlign: FxAlignSelf = 'center';
-    flex: string = '0 1 auto';
-    canFlex: boolean = true;
+    flex: string = '1 1 auto';
+    canFlex: boolean = false;
     direction: FxDirection = 'row';
     wrap: FxWrap = 'nowrap';
     main: FxMain = 'flex-start';
