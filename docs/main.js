@@ -710,21 +710,29 @@ __webpack_require__.r(__webpack_exports__);
 class FlexChildDirective {
     constructor(el) {
         this.el = el;
+        this.FLEX_DEFAULT = '0 1 auto';
         // align-self
         this.flexAlignSelf = 'inherit';
         // flex
-        this.flex = '0 1 auto';
+        this.flex = this.FLEX_DEFAULT;
+        this.canFlex = true;
         this.style = () => this.el.nativeElement.style;
+        this.setFlex = () => this.style().flex =
+            this.canFlex
+                ? this.flex
+                : this.FLEX_DEFAULT;
     }
     ngOnChanges(changes) {
         if (changes.flexAlignSelf)
             this.style().alignSelf = this.flexAlignSelf;
         if (changes.flex)
-            this.style().flex = this.flex;
+            this.setFlex();
+        if (changes.canFlex)
+            this.setFlex();
     }
 }
 FlexChildDirective.ɵfac = function FlexChildDirective_Factory(t) { return new (t || FlexChildDirective)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_core__WEBPACK_IMPORTED_MODULE_0__.ElementRef)); };
-FlexChildDirective.ɵdir = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineDirective"]({ type: FlexChildDirective, selectors: [["", "flexChild", ""]], inputs: { flexAlignSelf: "flexAlignSelf", flex: "flex" }, features: [_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵNgOnChangesFeature"]] });
+FlexChildDirective.ɵdir = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineDirective"]({ type: FlexChildDirective, selectors: [["", "flexChild", ""]], inputs: { flexAlignSelf: "flexAlignSelf", flex: "flex", canFlex: "canFlex" }, features: [_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵNgOnChangesFeature"]] });
 
 
 /***/ }),
@@ -1516,9 +1524,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_material_input__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @angular/material/input */ 8562);
 /* harmony import */ var _angular_material_core__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @angular/material/core */ 9121);
 /* harmony import */ var _angular_material_select__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @angular/material/select */ 7371);
+/* harmony import */ var _angular_material_slide_toggle__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! @angular/material/slide-toggle */ 4714);
 /* harmony import */ var _directives_flex_flex_child_directive__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../directives/flex/flex-child.directive */ 4139);
 /* harmony import */ var _directives_flex_flex_container_directive__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../directives/flex/flex-container.directive */ 2329);
 /* harmony import */ var _pipes_spacify_pipe__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../pipes/spacify.pipe */ 9214);
+
 
 
 
@@ -1591,7 +1601,7 @@ function FlexDirectivesRoute_mat_option_33_Template(rf, ctx) { if (rf & 1) {
     _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵadvance"](1);
     _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵtextInterpolate"](a_r12);
 } }
-function FlexDirectivesRoute_div_39_Template(rf, ctx) { if (rf & 1) {
+function FlexDirectivesRoute_div_45_Template(rf, ctx) { if (rf & 1) {
     _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementStart"](0, "div", 9);
     _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵtext"](1);
     _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵpipe"](2, "spacify");
@@ -1599,15 +1609,16 @@ function FlexDirectivesRoute_div_39_Template(rf, ctx) { if (rf & 1) {
 } if (rf & 2) {
     const color_r13 = ctx.$implicit;
     const ctx_r6 = _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵnextContext"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵproperty"]("ngClass", ctx_r6.getColor(color_r13));
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵproperty"]("ngClass", ctx_r6.getColor(color_r13))("flex", ctx_r6.flex)("canFlex", ctx_r6.canFlex);
     _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵadvance"](1);
-    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵtextInterpolate"](_angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵpipeBind1"](2, 2, color_r13));
+    _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵtextInterpolate"](_angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵpipeBind1"](2, 4, color_r13));
 } }
 class FlexDirectivesRoute {
     constructor() {
         this.values = _types_flex__WEBPACK_IMPORTED_MODULE_0__.FlexTypeValues;
         this.headerAlign = 'center';
         this.flex = '0 1 auto';
+        this.canFlex = true;
         this.direction = 'row';
         this.wrap = 'nowrap';
         this.main = 'flex-start';
@@ -1635,12 +1646,12 @@ class FlexDirectivesRoute {
     }
 }
 FlexDirectivesRoute.ɵfac = function FlexDirectivesRoute_Factory(t) { return new (t || FlexDirectivesRoute)(); };
-FlexDirectivesRoute.ɵcmp = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵdefineComponent"]({ type: FlexDirectivesRoute, selectors: [["flex-directives-route"]], decls: 40, vars: 21, consts: [["flexContainer", "", "flexDirection", "column", 1, "full-height"], ["flexChild", "", 1, "p8", "m0", "mat-title", 3, "flexAlignSelf"], [1, "control-grid", "background-card", "m4", "p8", "rounded", "card-outline-divider"], [3, "ngModel", "ngModelChange"], [3, "value", 4, "ngFor", "ngForOf"], ["matInput", "", "type", "text", 3, "ngModel", "ngModelChange"], ["flexContainer", "", 1, "background-card", "m4", "p4", "rounded", "card-outline-divider", "full-height", "overflow", 3, "flexDirection", "flexWrap", "flexMain", "flexCross", "flexAlign", "flexGap"], ["class", "p8 rounded card-outline-divider", "flexContainer", "", "flexDirection", "column", "flexMain", "center", "flexCross", "center", 3, "ngClass", 4, "ngFor", "ngForOf"], [3, "value"], ["flexContainer", "", "flexDirection", "column", "flexMain", "center", "flexCross", "center", 1, "p8", "rounded", "card-outline-divider", 3, "ngClass"]], template: function FlexDirectivesRoute_Template(rf, ctx) { if (rf & 1) {
+FlexDirectivesRoute.ɵcmp = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵdefineComponent"]({ type: FlexDirectivesRoute, selectors: [["flex-directives-route"]], decls: 46, vars: 23, consts: [["flexContainer", "", "flexDirection", "column", 1, "full-height"], ["flexChild", "", 1, "p8", "m0", "mat-title", 3, "flexAlignSelf"], [1, "control-grid", "background-card", "m4", "p8", "rounded", "card-outline-divider"], [3, "ngModel", "ngModelChange"], [3, "value", 4, "ngFor", "ngForOf"], ["matInput", "", "type", "text", 3, "ngModel", "ngModelChange"], ["flexContainer", "", 1, "background-card", "m4", "p4", "rounded", "card-outline-divider", "full-height", "overflow", 3, "flexDirection", "flexWrap", "flexMain", "flexCross", "flexAlign", "flexGap"], ["class", "p8 rounded card-outline-divider", "flexChild", "", "flexContainer", "", "flexDirection", "column", "flexMain", "center", "flexCross", "center", 3, "ngClass", "flex", "canFlex", 4, "ngFor", "ngForOf"], [3, "value"], ["flexChild", "", "flexContainer", "", "flexDirection", "column", "flexMain", "center", "flexCross", "center", 1, "p8", "rounded", "card-outline-divider", 3, "ngClass", "flex", "canFlex"]], template: function FlexDirectivesRoute_Template(rf, ctx) { if (rf & 1) {
         _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementStart"](0, "div", 0)(1, "p", 1);
         _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵtext"](2, "Flex Directives");
         _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementStart"](3, "div", 2)(4, "mat-form-field")(5, "mat-label");
-        _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵtext"](6, "Header FlexAlignSelf");
+        _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵtext"](6, "Child FlexAlignSelf");
         _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementStart"](7, "mat-select", 3);
         _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵlistener"]("ngModelChange", function FlexDirectivesRoute_Template_mat_select_ngModelChange_7_listener($event) { return ctx.headerAlign = $event; });
@@ -1686,9 +1697,19 @@ FlexDirectivesRoute.ɵcmp = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE
         _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementStart"](37, "input", 5);
         _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵlistener"]("ngModelChange", function FlexDirectivesRoute_Template_input_ngModelChange_37_listener($event) { return ctx.gap = $event; });
-        _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementEnd"]()()();
-        _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementStart"](38, "div", 6);
-        _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵtemplate"](39, FlexDirectivesRoute_div_39_Template, 3, 4, "div", 7);
+        _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementEnd"]()();
+        _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementStart"](38, "mat-form-field")(39, "mat-label");
+        _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵtext"](40, "Child Flex");
+        _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementStart"](41, "input", 5);
+        _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵlistener"]("ngModelChange", function FlexDirectivesRoute_Template_input_ngModelChange_41_listener($event) { return ctx.flex = $event; });
+        _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementEnd"]()();
+        _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementStart"](42, "mat-slide-toggle", 3);
+        _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵlistener"]("ngModelChange", function FlexDirectivesRoute_Template_mat_slide_toggle_ngModelChange_42_listener($event) { return ctx.canFlex = $event; });
+        _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵtext"](43, "Child CanFlex");
+        _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementEnd"]()();
+        _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementStart"](44, "div", 6);
+        _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵtemplate"](45, FlexDirectivesRoute_div_45_Template, 3, 6, "div", 7);
         _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵelementEnd"]()();
     } if (rf & 2) {
         _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵadvance"](1);
@@ -1719,11 +1740,15 @@ FlexDirectivesRoute.ɵcmp = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE
         _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵproperty"]("ngForOf", ctx.values.fxAlign);
         _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵadvance"](4);
         _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵproperty"]("ngModel", ctx.gap);
+        _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵadvance"](4);
+        _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵproperty"]("ngModel", ctx.flex);
         _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵadvance"](1);
+        _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵproperty"]("ngModel", ctx.canFlex);
+        _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵadvance"](2);
         _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵproperty"]("flexDirection", ctx.direction)("flexWrap", ctx.wrap)("flexMain", ctx.main)("flexCross", ctx.cross)("flexAlign", ctx.align)("flexGap", ctx.gap);
         _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵadvance"](1);
         _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵproperty"]("ngForOf", ctx.colors);
-    } }, dependencies: [_angular_common__WEBPACK_IMPORTED_MODULE_5__.NgClass, _angular_common__WEBPACK_IMPORTED_MODULE_5__.NgForOf, _angular_forms__WEBPACK_IMPORTED_MODULE_6__.DefaultValueAccessor, _angular_forms__WEBPACK_IMPORTED_MODULE_6__.NgControlStatus, _angular_forms__WEBPACK_IMPORTED_MODULE_6__.NgModel, _angular_flex_layout_extended__WEBPACK_IMPORTED_MODULE_7__.DefaultClassDirective, _angular_material_form_field__WEBPACK_IMPORTED_MODULE_8__.MatFormField, _angular_material_form_field__WEBPACK_IMPORTED_MODULE_8__.MatLabel, _angular_material_input__WEBPACK_IMPORTED_MODULE_9__.MatInput, _angular_material_core__WEBPACK_IMPORTED_MODULE_10__.MatOption, _angular_material_select__WEBPACK_IMPORTED_MODULE_11__.MatSelect, _directives_flex_flex_child_directive__WEBPACK_IMPORTED_MODULE_1__.FlexChildDirective, _directives_flex_flex_container_directive__WEBPACK_IMPORTED_MODULE_2__.FlexContainerDirective, _pipes_spacify_pipe__WEBPACK_IMPORTED_MODULE_3__.SpacifyPipe], styles: [".control-grid[_ngcontent-%COMP%] {\n  display: grid;\n  grid-template-columns: repeat(4, 1fr);\n  gap: 8px;\n  place-items: center;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImZsZXgtZGlyZWN0aXZlcy5yb3V0ZS5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0ksYUFBQTtFQUNBLHFDQUFBO0VBQ0EsUUFBQTtFQUNBLG1CQUFBO0FBQ0oiLCJmaWxlIjoiZmxleC1kaXJlY3RpdmVzLnJvdXRlLnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyIuY29udHJvbC1ncmlkIHtcclxuICAgIGRpc3BsYXk6IGdyaWQ7XHJcbiAgICBncmlkLXRlbXBsYXRlLWNvbHVtbnM6IHJlcGVhdCg0LCAxZnIpO1xyXG4gICAgZ2FwOiA4cHg7XHJcbiAgICBwbGFjZS1pdGVtczogY2VudGVyO1xyXG59XHJcbiJdfQ== */"] });
+    } }, dependencies: [_angular_common__WEBPACK_IMPORTED_MODULE_5__.NgClass, _angular_common__WEBPACK_IMPORTED_MODULE_5__.NgForOf, _angular_forms__WEBPACK_IMPORTED_MODULE_6__.DefaultValueAccessor, _angular_forms__WEBPACK_IMPORTED_MODULE_6__.NgControlStatus, _angular_forms__WEBPACK_IMPORTED_MODULE_6__.NgModel, _angular_flex_layout_extended__WEBPACK_IMPORTED_MODULE_7__.DefaultClassDirective, _angular_material_form_field__WEBPACK_IMPORTED_MODULE_8__.MatFormField, _angular_material_form_field__WEBPACK_IMPORTED_MODULE_8__.MatLabel, _angular_material_input__WEBPACK_IMPORTED_MODULE_9__.MatInput, _angular_material_core__WEBPACK_IMPORTED_MODULE_10__.MatOption, _angular_material_select__WEBPACK_IMPORTED_MODULE_11__.MatSelect, _angular_material_slide_toggle__WEBPACK_IMPORTED_MODULE_12__.MatSlideToggle, _directives_flex_flex_child_directive__WEBPACK_IMPORTED_MODULE_1__.FlexChildDirective, _directives_flex_flex_container_directive__WEBPACK_IMPORTED_MODULE_2__.FlexContainerDirective, _pipes_spacify_pipe__WEBPACK_IMPORTED_MODULE_3__.SpacifyPipe], styles: [".control-grid[_ngcontent-%COMP%] {\n  display: grid;\n  grid-template-columns: repeat(9, 1fr);\n  gap: 8px;\n  place-items: center;\n}\n\n@media (max-width: 581px) {\n  .control-grid[_ngcontent-%COMP%] {\n    grid-template-columns: repeat(2, 1fr);\n  }\n}\n\n@media (min-width: 582px) and (max-width: 1149px) {\n  .control-grid[_ngcontent-%COMP%] {\n    grid-template-columns: repeat(3, 1fr);\n  }\n}\n\n@media (min-width: 1150px) and (max-width: 1659px) {\n  .control-grid[_ngcontent-%COMP%] {\n    grid-template-columns: repeat(6, 1fr);\n  }\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImZsZXgtZGlyZWN0aXZlcy5yb3V0ZS5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0ksYUFBQTtFQUNBLHFDQUFBO0VBQ0EsUUFBQTtFQUNBLG1CQUFBO0FBQ0o7O0FBRUE7RUFDSTtJQUNJLHFDQUFBO0VBQ047QUFDRjs7QUFFQTtFQUNJO0lBQ0kscUNBQUE7RUFBTjtBQUNGOztBQUdBO0VBQ0k7SUFDSSxxQ0FBQTtFQUROO0FBQ0YiLCJmaWxlIjoiZmxleC1kaXJlY3RpdmVzLnJvdXRlLnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyIuY29udHJvbC1ncmlkIHtcclxuICAgIGRpc3BsYXk6IGdyaWQ7XHJcbiAgICBncmlkLXRlbXBsYXRlLWNvbHVtbnM6IHJlcGVhdCg5LCAxZnIpO1xyXG4gICAgZ2FwOiA4cHg7XHJcbiAgICBwbGFjZS1pdGVtczogY2VudGVyO1xyXG59XHJcblxyXG5AbWVkaWEgKG1heC13aWR0aDogNTgxcHgpIHtcclxuICAgIC5jb250cm9sLWdyaWQge1xyXG4gICAgICAgIGdyaWQtdGVtcGxhdGUtY29sdW1uczogcmVwZWF0KDIsIDFmcik7XHJcbiAgICB9XHJcbn1cclxuXHJcbkBtZWRpYSAobWluLXdpZHRoOiA1ODJweCkgYW5kIChtYXgtd2lkdGg6IDExNDlweCkge1xyXG4gICAgLmNvbnRyb2wtZ3JpZCB7XHJcbiAgICAgICAgZ3JpZC10ZW1wbGF0ZS1jb2x1bW5zOiByZXBlYXQoMywgMWZyKTtcclxuICAgIH1cclxufVxyXG5cclxuQG1lZGlhIChtaW4td2lkdGg6IDExNTBweCkgYW5kIChtYXgtd2lkdGg6IDE2NTlweCkge1xyXG4gICAgLmNvbnRyb2wtZ3JpZCB7XHJcbiAgICAgICAgZ3JpZC10ZW1wbGF0ZS1jb2x1bW5zOiByZXBlYXQoNiwgMWZyKTtcclxuICAgIH1cclxufVxyXG4iXX0= */"] });
 
 
 /***/ }),
