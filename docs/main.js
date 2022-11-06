@@ -1617,8 +1617,8 @@ class FlexDirectivesRoute {
     constructor() {
         this.values = _types_flex__WEBPACK_IMPORTED_MODULE_0__.FlexTypeValues;
         this.headerAlign = 'center';
-        this.flex = '0 1 auto';
-        this.canFlex = true;
+        this.flex = '1 1 auto';
+        this.canFlex = false;
         this.direction = 'row';
         this.wrap = 'nowrap';
         this.main = 'flex-start';
