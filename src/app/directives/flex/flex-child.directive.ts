@@ -12,10 +12,10 @@ import { FxAlignSelf } from '../../types/flex';
     selector: '[flexChild]'
 })
 export class FlexChildDirective implements OnChanges {
-    private readonly FLEX_DEFAULT = '0 1 auto';
+    private readonly FLEX_DEFAULT = '1 1 auto';
 
     // align-self
-    @Input() flexAlignSelf: FxAlignSelf = 'inherit';
+    @Input() flexAlignSelf: FxAlignSelf = 'auto';
     // flex
     @Input() flex: string = this.FLEX_DEFAULT;
 
@@ -31,9 +31,11 @@ export class FlexChildDirective implements OnChanges {
     constructor(private el: ElementRef) { }
 
     ngOnChanges(changes: SimpleChanges): void {
+        // align-self
         if (changes.flexAlignSelf)
             this.style().alignSelf = this.flexAlignSelf;
 
+        // flex
         if (changes.flex)
             this.setFlex();
 

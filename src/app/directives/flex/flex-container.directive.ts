@@ -18,18 +18,18 @@ import {
     selector: '[flexContainer]'
 })
 export class FlexContainerDirective implements OnChanges {
+    // align-content
+    @Input() flexAlign: FxAlign = 'normal';
+    // align-items
+    @Input() flexCross: FxCross = 'normal';
     // flex-direction
     @Input() flexDirection: FxDirection = 'row';
-    // flex-wrap
-    @Input() flexWrap: FxWrap = 'nowrap';
-    // justify-content
-    @Input() flexMain: FxMain = 'flex-start';
-    // align-items
-    @Input() flexCross: FxCross = 'stretch';
-    // align-content
-    @Input() flexAlign: FxAlign = 'stretch';
     // gap
     @Input() flexGap: string = 'normal';
+    // justify-content
+    @Input() flexMain: FxMain = 'normal';
+    // flex-wrap
+    @Input() flexWrap: FxWrap = 'nowrap';
 
     private style = () => this.el.nativeElement.style;
 
