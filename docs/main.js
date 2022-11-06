@@ -710,9 +710,9 @@ __webpack_require__.r(__webpack_exports__);
 class FlexChildDirective {
     constructor(el) {
         this.el = el;
-        this.FLEX_DEFAULT = '0 1 auto';
+        this.FLEX_DEFAULT = '1 1 auto';
         // align-self
-        this.flexAlignSelf = 'inherit';
+        this.flexAlignSelf = 'auto';
         // flex
         this.flex = this.FLEX_DEFAULT;
         this.canFlex = true;
@@ -723,8 +723,10 @@ class FlexChildDirective {
                 : this.FLEX_DEFAULT;
     }
     ngOnChanges(changes) {
+        // align-self
         if (changes.flexAlignSelf)
             this.style().alignSelf = this.flexAlignSelf;
+        // flex
         if (changes.flex)
             this.setFlex();
         if (changes.canFlex)
@@ -753,18 +755,18 @@ __webpack_require__.r(__webpack_exports__);
 class FlexContainerDirective {
     constructor(el) {
         this.el = el;
+        // align-content
+        this.flexAlign = 'normal';
+        // align-items
+        this.flexCross = 'normal';
         // flex-direction
         this.flexDirection = 'row';
-        // flex-wrap
-        this.flexWrap = 'nowrap';
-        // justify-content
-        this.flexMain = 'flex-start';
-        // align-items
-        this.flexCross = 'stretch';
-        // align-content
-        this.flexAlign = 'stretch';
         // gap
         this.flexGap = 'normal';
+        // justify-content
+        this.flexMain = 'normal';
+        // flex-wrap
+        this.flexWrap = 'nowrap';
         this.style = () => this.el.nativeElement.style;
         this.style().display = 'flex';
     }
@@ -784,7 +786,7 @@ class FlexContainerDirective {
     }
 }
 FlexContainerDirective.ɵfac = function FlexContainerDirective_Factory(t) { return new (t || FlexContainerDirective)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_core__WEBPACK_IMPORTED_MODULE_0__.ElementRef)); };
-FlexContainerDirective.ɵdir = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineDirective"]({ type: FlexContainerDirective, selectors: [["", "flexContainer", ""]], inputs: { flexDirection: "flexDirection", flexWrap: "flexWrap", flexMain: "flexMain", flexCross: "flexCross", flexAlign: "flexAlign", flexGap: "flexGap" }, features: [_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵNgOnChangesFeature"]] });
+FlexContainerDirective.ɵdir = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineDirective"]({ type: FlexContainerDirective, selectors: [["", "flexContainer", ""]], inputs: { flexAlign: "flexAlign", flexCross: "flexCross", flexDirection: "flexDirection", flexGap: "flexGap", flexMain: "flexMain", flexWrap: "flexWrap" }, features: [_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵNgOnChangesFeature"]] });
 
 
 /***/ }),
@@ -2235,48 +2237,59 @@ __webpack_require__.r(__webpack_exports__);
 class FlexTypeValues {
 }
 FlexTypeValues.fxAlign = [
-    'normal',
-    'flex-start',
-    'flex-end',
+    'baseline',
     'center',
-    'space-between',
+    'end',
+    'flex-end',
+    'flex-start',
+    'normal',
     'space-around',
+    'space-between',
     'space-evenly',
+    'start',
     'stretch'
 ];
 FlexTypeValues.fxAlignSelf = [
-    'inherit',
     'auto',
-    'flex-start',
-    'flex-end',
-    'center',
     'baseline',
+    'center',
+    'end',
+    'flex-end',
+    'flex-start',
+    'self-end',
+    'self-start',
+    'start',
     'stretch'
 ];
 FlexTypeValues.fxCross = [
-    'stretch',
-    'flex-start',
-    'flex-end',
+    'baseline',
     'center',
-    'baseline'
+    'end',
+    'flex-end',
+    'flex-start',
+    'normal',
+    'start',
+    'stretch'
 ];
 FlexTypeValues.fxDirection = [
-    'row',
-    'row-reverse',
     'column',
-    'column-reverse'
+    'column-reverse',
+    'row',
+    'row-reverse'
 ];
 FlexTypeValues.fxMain = [
-    'flex-start',
-    'flex-end',
-    'start',
-    'end',
-    'left',
-    'right',
     'center',
-    'space-between',
+    'end',
+    'flex-end',
+    'flex-start',
+    'left',
+    'normal',
+    'right',
     'space-around',
-    'space-evenly'
+    'space-between',
+    'space-evenly',
+    'start',
+    'stretch'
 ];
 FlexTypeValues.fxWrap = [
     'nowrap',
