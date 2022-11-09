@@ -1,0 +1,22 @@
+div.grid {
+    display: grid;
+    grid-template-rows: 1fr auto;
+}
+
+div.routes {
+    height: 128px;
+    padding: 4px;
+    overflow: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+}
+
+div.link {
+    margin: 4px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1 0 256px;
+    cursor: pointer;
+}

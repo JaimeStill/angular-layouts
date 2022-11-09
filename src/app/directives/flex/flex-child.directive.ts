@@ -3,6 +3,7 @@ import {
     ElementRef,
     Input,
     OnChanges,
+    OnInit,
     SimpleChanges
 } from '@angular/core';
 
@@ -11,7 +12,7 @@ import { FxAlignSelf } from '../../types/flex';
 @Directive({
     selector: '[flexChild]'
 })
-export class FlexChildDirective implements OnChanges {
+export class FlexChildDirective implements OnChanges, OnInit {
     private readonly FLEX_DEFAULT = '1 1 auto';
 
     // align-self
@@ -29,6 +30,11 @@ export class FlexChildDirective implements OnChanges {
             : this.FLEX_DEFAULT;
 
     constructor(private el: ElementRef) { }
+
+    ngOnInit(): void {
+        this.style().alignSelf = this.flexAlignSelf;
+        this.setFlex();
+    }
 
     ngOnChanges(changes: SimpleChanges): void {
         // align-self

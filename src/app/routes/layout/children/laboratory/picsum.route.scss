@@ -1,0 +1,35 @@
+div.grid {
+    display: grid;
+    grid-template-rows: 1fr auto;
+    align-content: space-between;
+    padding: 2rem;
+}
+
+div.gallery {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    place-items: center;
+    align-content: center;
+    max-width: 50rem;
+    margin-inline: auto;
+}
+
+div.gallery > img {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border-radius: 4px;
+
+    transition: scale 350ms ease, opacity 350ms linear;
+}
+
+div.gallery:has(img:hover) img:not(:hover) {
+    scale: 0.8;
+    opacity: 0.7;
+}
+
+a.attribution {
+    font-size: 1.2rem;
+    place-self: center;
+}

@@ -1,0 +1,28 @@
+<div class="grid full-height">
+    <div class="outlet overflow card-outline-divider rounded glow-2-accent mx8 my4">
+        <router-outlet></router-outlet>
+    </div>
+    <div class="card-outline-divider mx8 my4 rounded">
+        <div class="m4"
+             flexContainer
+             flexMain="space-between"
+             flexCross="center">
+            <p class="m4 mat-title">Samples</p>
+            <button class="m4"
+                    mat-icon-button
+                    (click)="toggleExpanded()">
+                <mat-icon>{{expanded ? 'keyboard_arrow_down' : 'keyboard_arrow_right'}}</mat-icon>
+            </button>
+        </div>
+        <div *ngIf="expanded"
+             class="routes p4">
+            <div *ngFor="let route of routes"
+                 class="link card-outline-divider rounded"
+                 matRipple
+                 [routerLink]="route"
+                 routerLinkActive="color-primary card-outline-primary background-card mat-body-strong">
+                {{route | spacify}}
+            </div>
+        </div>
+    </div>
+</div>
